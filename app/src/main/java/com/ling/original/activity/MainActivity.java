@@ -1,14 +1,19 @@
-package com.ling.original;
+package com.ling.original.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.ling.original.base.BaseActivity;
+import com.ling.engine.activity.BaseActivity;
+import com.ling.engine.application.MyApp;
+import com.ling.engine.db.UserDao;
+import com.ling.original.R;
+import com.ling.original.model.User;
 
 public class MainActivity extends BaseActivity {
 
@@ -42,6 +47,21 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initData() {
 
+        long userId = 123456;
+//        User user = new User(userId,"貂毛兽","");
+        User user1 = new User();
+        user1.setName("掉毛");
+        user1.setSex("男人");
+//        MyApp.getAppComponent().dbManager().getDaoSession().getUserDao().insert(user1);
+
+        UserDao userDao = MyApp.getAppComponent().dbManager().getDaoSession().getUserDao();
+        //增加
+        userDao.insert(user1);
+        //查询
+        User testUser = userDao.load(userId);
+
+
+        Log.e("MainActivity","-----------------------"+testUser.getName());
     }
 
     @Override
