@@ -10,10 +10,10 @@ import com.ling.engine.fragment.BaseFragment;
 import com.ling.original.R;
 
 /**
- * Created by Administrator on 2017/3/14.
+ * Created by Administrator on 2017/3/17.
  */
 
-public class UserInfoFragment extends BaseFragment {
+public class DemoFragmen extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class UserInfoFragment extends BaseFragment {
 
     @Override
     protected int getLayout() {
-        return R.layout.fragment_userinfo;
+        return R.layout.fragment_demo;
     }
 
     @Override
